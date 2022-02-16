@@ -22,7 +22,7 @@ pose=mp_pose.Pose(model_complexity
 #Inizializzare la comunicazione
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
-gsm = io.Serial("/dev/ttyUSB0",9600, timeout=0.5)
+gsm = io.Serial("COM0",9600, timeout=0.5)
 gsm.flush()
 
 
