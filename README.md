@@ -10,4 +10,5 @@ Requirements:
 - At least 8 GB of usable RAM
 - Python 3.7.6
 - OpenCv version 4.5.4
-- Mediapipe
+- Mediapipe 0.8.4.2
+- GSM/GPRS/GNSS/Bluetooth HAT for Raspberry Pi, Based on SIM868

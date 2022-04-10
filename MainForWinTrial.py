@@ -10,6 +10,7 @@ import serial as io
 
 
 #Start cv2 video capturing through CSI port
+#cap=cv2.VideoCapture("C:/Users/Piergiovanni/Desktop/videoprova.avi")
 cap=cv2.VideoCapture(0)
 
 #Initialise Media Pipe Pose features
@@ -17,7 +18,7 @@ mp_pose=mp.solutions.pose
 mpDraw=mp.solutions.drawing_utils
 pose=mp_pose.Pose(model_complexity
 = 2, min_detection_confidence=0.7,
-    min_tracking_confidence=0.7,     static_image_mode=True) # On Windows machine we go for a maximum complexity because usually the system has enough power to stand with it
+    min_tracking_confidence=0.7,     static_image_mode=False) # On Windows machine we go for a maximum complexity because usually the system has enough power to stand with it
 
 #Communication initialisation
 now = datetime.now()
@@ -53,18 +54,18 @@ def FallDetection():
         try:
             # Se si vuole modalità di rilevazione che usa i fianchi togliere il commento a "Left_Hip" e "Right_Hip"
             # Se si vuole modalità basata su accelerazioni togliere il commento a "Nose" e commentare "Left_Hip" e "Right_Hip"
-            #x = result.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_HIP].y * 480
-            #y = result.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_HIP].y * 480
-            y = result.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].y * 480
+            x = result.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_HIP].y * 480
+            y = result.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_HIP].y * 480
+            #y = result.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].y * 480
             # print('Y Coords are', result.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].y * 480)
             
-            y1.append(y)   # memorizza valore di y del naso per confontarlo
-            if((result.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].visibility)) > 0.8:
-            #if((result.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_HIP].visibility) > 0.8 or (result.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_HIP].visibility) > 0.8):
+            #y1.append(y)   # memorizza valore di y del naso per confontarlo
+            #if((result.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].visibility)) > 0.8:
+            if((result.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_HIP].visibility) > 0.8 or (result.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_HIP].visibility) > 0.8):
                 print('Rilevamento in corso!')
-                if ((y1[-1] - y1[-2]) > 30):  # è la distanza verticale del naso da un frame all'altro e viene comparata con un valore di soglia (se il naso si è spostato più della soglia da un solo frame all'altro, vuol dire che la persona è caduta)     
+                #if ((y1[-1] - y1[-2]) > 30):  # è la distanza verticale del naso da un frame all'altro e viene comparata con un valore di soglia (se il naso si è spostato più della soglia da un solo frame all'altro, vuol dire che la persona è caduta)     
             
-            #if (x > 400 and y > 400):   
+            if (x > 400 and y > 400):   
                     count +=1
                     print(' il conto cadute è ' , count)
                     if count == 1:
@@ -90,7 +91,7 @@ def Alarm():
     #cv2.putText(rgb_img, "Caduta rilevata", (20,50), cv2.FONT_HERSHEY_COMPLEX, 2.5, (0,0,255), 
      #              2, 11)
     print('Inizio la richiesta di aiuto!')
-    #SendSms1("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
+    SendSms1("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
     #SendSms2("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
         
 

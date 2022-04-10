@@ -1,9 +1,9 @@
 # coding=utf-8
-import cv2
+import cv2 # import opencv
 import time
-import PoseModule as pm
+import PoseModule as pm 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)   # change number on the basis of which camera you are going to use 
 pTime = 0
 detector = pm.poseDetector()
 
