@@ -13,5 +13,5 @@ def Alarm():
     print('Inizio la richiesta di aiuto!')
     #SendSms1("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
     #SendSms2("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
-    #time.sleep(20)    
+    time.sleep(5)    
     

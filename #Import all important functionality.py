@@ -1,9 +1,9 @@
 #Import all important functionality
 import cv2
 import mediapipe as mp
-import SendSms
-from SendSms import SendSms1
-from SendSms import SendSms2
+#import SendSms
+#from SendSms import SendSms1
+#from SendSms import SendSms2
 import time
 from datetime import datetime
 import serial as io
@@ -22,8 +22,8 @@ pose=mp_pose.Pose(model_complexity
 #Inizializzare la comunicazione
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
-gsm = io.Serial("COM0",9600, timeout=0.5)
-gsm.flush()
+#gsm = io.Serial("COM0",9600, timeout=0.5)
+#gsm.flush()
 
 
 
@@ -90,8 +90,8 @@ def Alarm():
     #cv2.putText(rgb_img, "Caduta rilevata", (20,50), cv2.FONT_HERSHEY_COMPLEX, 2.5, (0,0,255), 
      #              2, 11)
     print('Inizio la richiesta di aiuto!')
-    SendSms1("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
-    SendSms2("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
+    #SendSms1("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
+    #SendSms2("Emergenza in corso, per favore controlla che sia tutto a posto " + current_time)
         
 
             
