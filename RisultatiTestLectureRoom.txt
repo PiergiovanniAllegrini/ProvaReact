@@ -1,4 +1,4 @@
-RISULTATI DATASET LECTURE ROOM
+
 Caduta rilevata nel video numero 1
 Caduta rilevata nel video numero 2
 Caduta rilevata nel video numero 3
@@ -25,3 +25,4 @@ Nessuna caduta rilevata nel video numero 23
 Caduta rilevata nel video numero 24
 Caduta rilevata nel video numero 25
 Nessuna caduta rilevata nel video numero 26
+Nessuna caduta rilevata nel video numero 27

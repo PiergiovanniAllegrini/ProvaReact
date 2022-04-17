@@ -1,5 +1,7 @@
 import time
-
+""" from SendSmsForRaspberryPi import SendSms1
+from SendSmsForRaspberryPi import SendSms2
+ """
 
 # Funzione di allarme
 def Alarm():

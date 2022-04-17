@@ -50,7 +50,7 @@ for i in range(66,71,1):
             #if key ==ord("q"):
             #    break
             #print('X Coords are', result.pose_landmarks.landmark[mp_pose.PoseLandmark.NOSE].x * 640)
-            for j in range(500):
+            while True:
                 #print(j)
                 while True:
                     
